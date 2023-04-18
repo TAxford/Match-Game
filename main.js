@@ -13,6 +13,9 @@ var cardsArray = [
     {    'name': 'Wordpress',    'img': 'https://github.com/robgmerrill/img/blob/master/wordpress-logo.png?raw=true',  },
   ];
 
+  // Duplicate cardsArray to create a match for each card
+  var gameGrid = cardsArray.concat(cardsArray);
+
   // Grab the div with an id of game-board and assign to a variable game
   var game = document.getElementById('game-board');
   // Create a section element and assign it to the variable grid
@@ -23,15 +26,15 @@ var cardsArray = [
   game.appendChild(grid);
 
   // Loop through each item in our cards array
-  for (i = 0; i < cardsArray.length; i++){
+  for (i = 0; i < gameGrid.length; i++){
     // create a div element and assign to variable card
     var card = document.createElement('div');
     // Apply a card class to that div
     card.classList.add('card');
     // Set the data-name attribute of the div to the cardsArry name
-    card.dataset.name = cardsArray[i].name;
+    card.dataset.name = gameGrid[i].name;
     // Apply the background image of the div to the cardsArray Image
-    card.style.backgroundImage = 'url('+cardsArray[i].img+')';
+    card.style.backgroundImage = 'url('+gameGrid[i].img+')';
     // Append the div to thegrid section
     grid.appendChild(card);
   }
