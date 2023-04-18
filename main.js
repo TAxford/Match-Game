@@ -43,3 +43,17 @@ var cardsArray = [
     // Append the div to thegrid section
     grid.appendChild(card);
   }
+
+  // Add event listener to grid
+  grid.addEventListener('click', function(event) {
+    // Declare variable to target our clicked item
+    var clicked = event.target;
+    // Do not allow the grid section itself to be selected;
+    // only select divs inside the grid
+    if (clicked.nodeName == "SECTION"){
+        return;
+    }
+
+    // Add selected class
+    clicked.classList.add('selected');
+  })
