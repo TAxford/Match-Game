@@ -31,7 +31,7 @@ var cardsArray = [
     // Set the data-name attribute of the div to the cardsArry name
     card.dataset.name = cardsArray[i].name;
     // Apply the background image of the div to the cardsArray Image
-    card.style.backgroundImage = 'url(${cardsArry[i].img}';
+    card.style.backgroundImage = 'url('+cardsArray[i].img+')';
     // Append the div to thegrid section
     grid.appendChild(card);
   }
