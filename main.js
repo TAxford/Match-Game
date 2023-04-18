@@ -16,6 +16,11 @@ var cardsArray = [
   // Duplicate cardsArray to create a match for each card
   var gameGrid = cardsArray.concat(cardsArray);
 
+  // Randomize game grid on each load
+  gameGrid.sort(function() {
+    return 0.5 - Math.random()
+  })
+
   // Grab the div with an id of game-board and assign to a variable game
   var game = document.getElementById('game-board');
   // Create a section element and assign it to the variable grid
