@@ -12,3 +12,12 @@ var cardsArray = [
     {    'name': 'Sublime',    'img': 'https://github.com/robgmerrill/img/blob/master/sublime-logo.png?raw=true',  },
     {    'name': 'Wordpress',    'img': 'https://github.com/robgmerrill/img/blob/master/wordpress-logo.png?raw=true',  },
   ];
+
+  // Grab the div with an id of game-board and assign to a variable game
+  var game = document.getElementById('game-board');
+  // Create a section element and assign it to the variable grid
+  var grid = document.createElement('section');
+  // Give a section element a class of grid
+  grid.setAttribute('class', 'grid');
+  // Append the grid section to the game-board div
+  game.appendChild(grid);
