@@ -58,7 +58,7 @@ var cardsArray = [
     for (i = 0; i < selected.length; i++) {
       selected[i].classList.add('match');
     }
-  }
+  };
 
   // Add event listener to grid
   grid.addEventListener('click', function(event) {
@@ -77,15 +77,19 @@ var cardsArray = [
         // Assign first guess
         firstGuess = clicked.dataset.name;
         clicked.classList.add('selected');
-      }else{
+      }else {
         // Assign second guess
         secondGuess = clicked.dataset.name;
         clicked.classList.add('selected');
       }
       // If both guesses are not empty
       if (firstGuess != ''&& secondGuess != ''){
-        // Reun the match function
-        match();
+        // And the firstGuess matches secondGuess
+        if (firstGuess == secondGuess){
+          // Reun the match function
+          match();
+        }
+        
       }
       previousTarget = clicked;
     }    
