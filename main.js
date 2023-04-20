@@ -50,6 +50,7 @@ var cardsArray = [
   // Set count to 0
   var count = 0;
   var previousTarget = null;
+  var delay = 1200;
 
   // Add match CSS
   var match = function(){
@@ -100,10 +101,10 @@ var cardsArray = [
         // And the firstGuess matches secondGuess
         if (firstGuess == secondGuess){
           // Reun the match function
-          match();
-          resetGuesses();
+          setTimeout(match, delay);
+          setTimeout(resetGuesses, delay);
         }else {
-          resetGuesses();
+          setTimeout(resetGuesses, delay);
         }
         
       }
