@@ -45,8 +45,19 @@ var cardsArray = [
     grid.appendChild(card);
   }
 
+  var firstGuess = '';
+  var secondGuess = '';
   // Set count to 0
   var count = 0;
+
+  // Add match CSS
+  var match = function(){
+    var selected = document.querySelectorAll('.selected');
+    // loop through the array like onject containing 'selected' class
+    for (i = 0; i < selected.length; i++) {
+      selected[i].classList.add('match');
+    }
+  }
 
   // Add event listener to grid
   grid.addEventListener('click', function(event) {
