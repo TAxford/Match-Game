@@ -30,6 +30,7 @@ var cardsArray = [
   // Append the grid section to the game-board div
   game.appendChild(grid);
 
+  
   // Loop through each item in our cards array
   for (i = 0; i < gameGrid.length; i++){
     // create a div element and assign to variable card
@@ -44,6 +45,9 @@ var cardsArray = [
     grid.appendChild(card);
   }
 
+  // Set count to 0
+  var count = 0;
+
   // Add event listener to grid
   grid.addEventListener('click', function(event) {
     // Declare variable to target our clicked item
@@ -53,7 +57,10 @@ var cardsArray = [
     if (clicked.nodeName == "SECTION"){
         return;
     }
-
-    // Add selected class
+    // We only want to add 'selected' class if the current count is less then 2
+    if  (count < 2){
+      count++;
+      // Add selected class
     clicked.classList.add('selected');
-  })
+    }    
+  });
