@@ -49,6 +49,7 @@ var cardsArray = [
   var secondGuess = '';
   // Set count to 0
   var count = 0;
+  var previousTarget = null;
 
   // Add match CSS
   var match = function(){
@@ -65,13 +66,27 @@ var cardsArray = [
     var clicked = event.target;
     // Do not allow the grid section itself to be selected;
     // only select divs inside the grid
-    if (clicked.nodeName == "SECTION"){
-        return;
+    if (clicked.nodeName == "SECTION" || clicked == previousTarget || clicked.parentNode.classList.contains('match') || clicked.parentNode.classList.contains('selected')){
+      return;
     }
     // We only want to add 'selected' class if the current count is less then 2
     if  (count < 2){
       count++;
-      // Add selected class
-    clicked.classList.add('selected');
+      
+      if (count == 1) {
+        // Assign first guess
+        firstGuess = clicked.dataset.name;
+        clicked.classList.add('selected');
+      }else{
+        // Assign second guess
+        secondGuess = clicked.dataset.name;
+        clicked.classList.add('selected');
+      }
+      // If both guesses are not empty
+      if (firstGuess != ''&& secondGuess != ''){
+        // Reun the match function
+        match();
+      }
+      previousTarget = clicked;
     }    
   });
