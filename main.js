@@ -60,6 +60,19 @@ var cardsArray = [
     }
   };
 
+  // Reset guesses after two attempts
+  var resetGuesses = function(){
+    firstGuess = '';
+    secondGuess = '';
+    count = 0;
+    previousTarget = null;
+
+    var selected = document.querySelectorAll('.selected');
+    for (i = 0; i < selected.length; i++){
+      selected[i].classList.remove('selected');
+    }
+  };
+
   // Add event listener to grid
   grid.addEventListener('click', function(event) {
     // Declare variable to target our clicked item
@@ -88,6 +101,9 @@ var cardsArray = [
         if (firstGuess == secondGuess){
           // Reun the match function
           match();
+          resetGuesses();
+        }else {
+          resetGuesses();
         }
         
       }
